@@ -1,0 +1,23 @@
+/* ============================================================
+   RESPONSIVE — Mobile and tablet breakpoints
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .landing-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .room-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .sidebar, .sidebar.sidebar-right {
+    border: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .center-stage {
+    min-height: 300px;
+  }
+}

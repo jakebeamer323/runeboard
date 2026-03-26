@@ -1,0 +1,213 @@
+/* ============================================================
+   LAYOUT — Page structure for room.html and index.html
+   ============================================================ */
+
+/* ---- Landing page ---------------------------------------- */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.landing-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.landing-header .logo {
+  font-size: 36px;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.landing-tagline {
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+.landing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 600px;
+}
+
+.landing-name {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: var(--space-5);
+}
+
+/* ---- Room layout ----------------------------------------- */
+.room-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Top navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0 var(--space-5);
+  height: 48px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.navbar .logo { font-size: 16px; }
+
+.navbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+}
+
+.navbar-room-name {
+  font-size: 13px;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Three-column layout */
+.room-body {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ---- Sidebar panel --------------------------------------- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.sidebar.sidebar-right {
+  border-right: none;
+  border-left: 1px solid var(--border);
+}
+
+/* Panel within a sidebar */
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-3);
+  min-height: 0;
+}
+
+/* Chat panel takes remaining space */
+.panel-chat {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Chat message list */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-2) 0;
+  min-height: 0;
+}
+
+/* Chat input */
+.chat-input-area {
+  padding: var(--space-3);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* Dice panel fixed height */
+.panel-dice {
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ---- Center stage ---------------------------------------- */
+.center-stage {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  overflow: hidden;
+  position: relative;
+}
+
+.map-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  color: var(--text-muted);
+}
+
+.map-placeholder-icon {
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+.map-placeholder-text {
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ---- Initiative panel ------------------------------------ */
+.panel-initiative {
+  flex-shrink: 0;
+  max-height: 50%;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-initiative .panel-body {
+  padding: var(--space-2);
+}
+
+/* Character sheet panel */
+.panel-sheet {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---- Initiative add form --------------------------------- */
+.init-add-form {
+  padding: var(--space-3);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.init-add-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 60px;
+  gap: var(--space-2);
+}

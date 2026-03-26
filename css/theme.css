@@ -1,0 +1,108 @@
+/* ============================================================
+   THEME — Dark fantasy aesthetic, fonts, decorative rules
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ---- Headings -------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+/* ---- Logo ------------------------------------------------- */
+.logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ---- Panel headers --------------------------------------- */
+.panel-header {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ---- Divider --------------------------------------------- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-4) 0;
+}
+
+/* ---- Room code badge ------------------------------------- */
+.room-code {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-dim);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition);
+  user-select: all;
+}
+
+.room-code:hover {
+  background: rgba(201, 168, 76, 0.2);
+}
+
+/* ---- Dice result display ---------------------------------- */
+.roll-result {
+  font-family: var(--font-display);
+  color: var(--accent);
+}
+
+.roll-result.crit {
+  color: #f0d060;
+  text-shadow: 0 0 12px rgba(240, 208, 96, 0.4);
+}
+
+.roll-result.fail {
+  color: var(--danger);
+}
+
+/* ---- System messages in chat ----------------------------- */
+.msg-system {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ---- Scrollable area ------------------------------------- */
+.scroll-area {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ---- Empty state ----------------------------------------- */
+.empty-state {
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  font-style: italic;
+}

@@ -1,0 +1,109 @@
+/* ============================================================
+   BASE — Reset, CSS variables, global defaults
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --bg:              #0d0e12;
+  --surface:         #13151c;
+  --surface-raised:  #1a1d27;
+  --surface-hover:   #1f2233;
+  --border:          #252836;
+  --border-strong:   #353850;
+
+  --accent:          #c9a84c;
+  --accent-dim:      #8a7030;
+  --accent-glow:     rgba(201, 168, 76, 0.12);
+
+  --text:            #e8e3d5;
+  --text-muted:      #6b6880;
+  --text-dim:        #9b97aa;
+
+  --danger:          #c94c4c;
+  --danger-dim:      rgba(201, 76, 76, 0.15);
+  --success:         #4c9c6a;
+  --info:            #4c7ec9;
+
+  --dice-bg:         #1f2233;
+
+  /* Typography */
+  --font-display:    'Cinzel', 'Georgia', serif;
+  --font-body:       'Inter', 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius:    6px;
+  --radius-lg: 10px;
+
+  /* Transitions */
+  --transition: 150ms ease;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: var(--space-2) var(--space-3);
+  outline: none;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+ul { list-style: none; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }

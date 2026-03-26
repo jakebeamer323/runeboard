@@ -1,0 +1,328 @@
+/* ============================================================
+   COMPONENTS — Reusable UI elements
+   ============================================================ */
+
+/* ---- Buttons --------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #1a1400;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: #d9b85c;
+  border-color: #d9b85c;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.btn-ghost:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: var(--danger-dim);
+}
+
+.btn-icon {
+  padding: var(--space-2);
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.btn-icon:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-full { width: 100%; }
+
+/* ---- Input group ----------------------------------------- */
+.input-group {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.input-group input {
+  flex: 1;
+}
+
+/* ---- Form label ------------------------------------------ */
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* ---- Card ------------------------------------------------ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+/* ---- Badge ----------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.badge-gold {
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+}
+
+.badge-muted {
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ---- Modal ----------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--space-4);
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  margin-bottom: var(--space-5);
+  color: var(--text);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px;
+}
+
+.modal-close:hover { color: var(--text); }
+
+/* ---- Toast notification ---------------------------------- */
+#toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  font-size: 13px;
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  animation: toastIn 200ms ease forwards;
+  max-width: 300px;
+}
+
+.toast.toast-out {
+  animation: toastOut 200ms ease forwards;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(8px); }
+}
+
+/* ---- Initiative entry ------------------------------------ */
+.init-entry {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: background var(--transition);
+}
+
+.init-entry.active {
+  background: var(--accent-glow);
+  border-color: var(--accent-dim);
+}
+
+.init-entry:hover {
+  background: var(--surface-hover);
+}
+
+.init-badge {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 28px;
+  text-align: center;
+}
+
+.init-name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.init-hp {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ---- Chat message ---------------------------------------- */
+.chat-msg {
+  padding: var(--space-1) var(--space-4);
+  line-height: 1.4;
+}
+
+.chat-msg:hover {
+  background: var(--surface-hover);
+}
+
+.chat-author {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: var(--space-2);
+}
+
+.chat-time {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.chat-text {
+  font-size: 13px;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.chat-roll {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ---- Dice buttons ---------------------------------------- */
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.dice-btn {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 12px;
+  padding: var(--space-2) 0;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.dice-btn:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ---- Loading spinner ------------------------------------- */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 600ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runeboard</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-page="room" class="room-page">
+
+  <!-- ── Navbar ───────────────────────────────────────────── -->
+  <nav class="navbar">
+    <span class="logo">Rune<span>board</span></span>
+    <div class="navbar-divider"></div>
+    <span id="navbar-room-name" class="navbar-room-name">Loading…</span>
+    <span id="dm-badge" class="badge badge-gold" style="display:none;">DM</span>
+    <div class="navbar-actions">
+      <span id="navbar-room-code" class="room-code" title="Click to copy">······</span>
+      <button id="leave-btn" class="btn btn-ghost" style="font-size:12px;">Leave</button>
+    </div>
+  </nav>
+
+  <!-- ── Body (3-column) ──────────────────────────────────── -->
+  <div class="room-body">
+
+    <!-- ── LEFT SIDEBAR ──────────────────────────────────── -->
+    <aside class="sidebar">
+
+      <!-- Chat panel -->
+      <div class="panel panel-chat">
+        <div class="panel-header">
+          Chat
+        </div>
+        <div id="chat-messages" class="chat-messages scroll-area"></div>
+        <div class="chat-input-area">
+          <div class="input-group">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Message…"
+              maxlength="500"
+              autocomplete="off"
+            />
+            <button id="chat-send-btn" class="btn btn-primary" style="flex-shrink:0;">↑</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dice roller panel -->
+      <div class="panel panel-dice">
+        <div class="panel-header">Dice Roller</div>
+        <div class="panel-body" style="display:flex; flex-direction:column; gap:10px;">
+
+          <!-- Quick roll grid -->
+          <div id="dice-grid" class="dice-grid"></div>
+
+          <!-- Custom notation -->
+          <div class="input-group">
+            <input
+              id="dice-input"
+              type="text"
+              placeholder="2d6+3, d20 adv…"
+              autocomplete="off"
+            />
+            <button id="dice-roll-btn" class="btn btn-primary" style="flex-shrink:0;">Roll</button>
+          </div>
+
+          <!-- Roll history -->
+          <div
+            id="dice-history"
+            class="scroll-area"
+            style="max-height:120px; display:flex; flex-direction:column; gap:2px;"
+          ></div>
+
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── CENTER STAGE ──────────────────────────────────── -->
+    <main class="center-stage">
+      <div class="map-placeholder">
+        <div class="map-placeholder-icon">⚔️</div>
+        <div class="map-placeholder-text">
+          <strong style="font-family:var(--font-display); color:var(--text-dim);">Map &amp; Tabletop</strong><br />
+          <span style="font-size:12px;">Coming in Phase 2</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- ── RIGHT SIDEBAR ─────────────────────────────────── -->
+    <aside class="sidebar sidebar-right">
+
+      <!-- Initiative tracker -->
+      <div class="panel panel-initiative">
+        <div class="panel-header">
+          Initiative
+          <div style="display:flex; gap:4px;">
+            <button id="init-next-btn" class="btn btn-ghost" style="display:none; font-size:11px; padding:2px 8px;">Next</button>
+            <button id="init-clear-btn" class="btn btn-danger" style="display:none; font-size:11px; padding:2px 8px;">Clear</button>
+          </div>
+        </div>
+        <div id="init-list" class="panel-body scroll-area"></div>
+
+        <!-- DM add form (hidden for players) -->
+        <div id="init-add-form" class="init-add-form" style="display:none;">
+          <div class="init-add-row">
+            <input id="init-name"  type="text"   placeholder="Name"    autocomplete="off" />
+            <input id="init-value" type="number"  placeholder="Init"   min="-5" max="30" />
+            <input id="init-hp"    type="number"  placeholder="HP"     min="0" />
+          </div>
+          <button id="init-add-btn" class="btn btn-ghost btn-full" style="font-size:12px;">+ Add Combatant</button>
+        </div>
+      </div>
+
+      <!-- Character sheet panel (Phase 1 stub) -->
+      <div class="panel panel-sheet">
+        <div class="panel-header">Character Sheet</div>
+        <div class="panel-body">
+          <div class="empty-state">
+            Character sheets coming soon.
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
