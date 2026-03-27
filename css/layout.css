@@ -132,6 +132,42 @@
   padding: var(--space-8);
 }
 
+/* ---- Tools page (player-tools.html) ---------------------- */
+.tools-main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tools-page {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+.tools-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.tools-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.tools-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
 /* ---- Old landing page (kept for reference) --------------- */
 .landing {
   min-height: 100vh;

@@ -46,4 +46,19 @@
   .settings-panel {
     width: 100%;
   }
+
+  /* Character grid */
+  .char-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .char-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-page {
+    padding: var(--space-5) var(--space-4);
+  }
 }

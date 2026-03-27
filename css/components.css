@@ -246,6 +246,142 @@
 }
 
 /* ============================================================
+   CHARACTER CARDS
+   ============================================================ */
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.char-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.char-card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.char-portrait {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--surface-raised), var(--surface-hover));
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.char-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 65%, var(--accent-glow), transparent 68%);
+}
+
+.char-portrait-letter {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.45;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.char-card-body {
+  padding: var(--space-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.char-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+
+.char-class-level {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.char-species-bg {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.char-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.char-view-btn {
+  flex: 1;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ---- Empty / loading states ------------------------------ */
+.char-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  gap: var(--space-3);
+  min-height: 320px;
+}
+
+.char-empty-icon {
+  font-size: 52px;
+  opacity: 0.35;
+  line-height: 1;
+}
+
+.char-empty-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.char-empty-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.char-loading {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+/* ============================================================
    ORIGINAL COMPONENTS
    ============================================================ */
 
