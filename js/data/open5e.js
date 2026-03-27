@@ -1,9 +1,9 @@
 /* ============================================================
    OPEN5E API CLIENT — Fetches D&D data with sessionStorage cache
-   Base URL: https://api.open5e.com/v2/
+   Base URL: https://api.open5e.com/v1/
    ============================================================ */
 
-const BASE = 'https://api.open5e.com/v2';
+const BASE = 'https://api.open5e.com/v1';
 const CACHE_PREFIX = 'o5e_';
 
 // ---- Cache helpers ----------------------------------------
@@ -86,8 +86,8 @@ function normalizeRace(r) {
         desc: stripMarkdown(t.desc || ''),
       })),
     })),
-    sourceSlug: r.document?.slug || 'unknown',
-    sourceName: r.document?.title || 'Unknown Source',
+    sourceSlug: r.document__slug || 'unknown',
+    sourceName: r.document__title || 'Unknown Source',
   };
 }
 
@@ -111,8 +111,8 @@ function normalizeClass(c) {
     savingThrows: c.saving_throws || [],
     proficiencies: c.prof_armor || '',
     skillChoices: c.skills || '',
-    sourceSlug: c.document?.slug || 'unknown',
-    sourceName: c.document?.title || 'Unknown Source',
+    sourceSlug: c.document__slug || 'unknown',
+    sourceName: c.document__title || 'Unknown Source',
   };
 }
 
@@ -138,8 +138,8 @@ function normalizeBg(b) {
     toolProfs: b.tool_proficiencies || '',
     languages: b.languages || '',
     equipment: b.equipment || '',
-    sourceSlug: b.document?.slug || 'unknown',
-    sourceName: b.document?.title || 'Unknown Source',
+    sourceSlug: b.document__slug || 'unknown',
+    sourceName: b.document__title || 'Unknown Source',
   };
 }
 
@@ -170,8 +170,8 @@ function normalizeSpell(s) {
     ritual: s.ritual === 'yes',
     desc: stripMarkdown(s.desc || ''),
     classes: s.dnd_class || '',
-    sourceSlug: s.document?.slug || 'unknown',
-    sourceName: s.document?.title || 'Unknown Source',
+    sourceSlug: s.document__slug || 'unknown',
+    sourceName: s.document__title || 'Unknown Source',
   };
 }
 
