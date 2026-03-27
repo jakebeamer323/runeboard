@@ -285,8 +285,19 @@ async function initCreatorPage() {
     window.location.href = 'player-tools.html';
     return;
   }
-  const { initWizard } = await import('./creator/wizard.js');
-  initWizard();
+  try {
+    const { initWizard } = await import('./creator/wizard.js');
+    initWizard();
+  } catch (err) {
+    console.error('Wizard failed to load:', err);
+    const content = document.getElementById('creator-content');
+    if (content) content.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:var(--space-4);padding:var(--space-8);text-align:center;">
+        <div style="font-size:36px;opacity:0.4;">⚠️</div>
+        <p style="font-size:13px;color:var(--danger);">Failed to load character creator: ${err.message}</p>
+        <a href="player-tools.html" class="btn btn-ghost">← Back to Characters</a>
+      </div>`;
+  }
 }
 
 /* ============================================================
