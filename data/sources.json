@@ -1,0 +1,359 @@
+{
+  "sources": [
+    {
+      "id": "PHB",
+      "name": "Player's Handbook (2014)",
+      "category": "Core",
+      "date": "2014-08-18",
+      "provides": ["species", "classes", "backgrounds", "spells", "equipment", "feats"]
+    },
+    {
+      "id": "MM",
+      "name": "Monster Manual (2014)",
+      "category": "Core",
+      "date": "2014-09-29",
+      "provides": []
+    },
+    {
+      "id": "DMG",
+      "name": "Dungeon Master's Guide (2014)",
+      "category": "Core",
+      "date": "2014-12-08",
+      "provides": ["spells", "items"]
+    },
+    {
+      "id": "XPHB",
+      "name": "Player's Handbook (2024)",
+      "category": "Core",
+      "date": "2024-09-16",
+      "provides": ["species", "classes", "backgrounds", "spells", "equipment", "feats"]
+    },
+    {
+      "id": "XDMG",
+      "name": "Dungeon Master's Guide (2024)",
+      "category": "Core",
+      "date": "2024-11-11",
+      "provides": ["spells", "items"]
+    },
+    {
+      "id": "XMM",
+      "name": "Monster Manual (2025)",
+      "category": "Core",
+      "date": "2025-02-17",
+      "provides": []
+    },
+    {
+      "id": "VGM",
+      "name": "Volo's Guide to Monsters",
+      "category": "Supplements",
+      "date": "2016-11-14",
+      "provides": ["species"]
+    },
+    {
+      "id": "XGE",
+      "name": "Xanathar's Guide to Everything",
+      "category": "Supplements",
+      "date": "2017-11-20",
+      "provides": ["classes", "spells", "feats"]
+    },
+    {
+      "id": "MTF",
+      "name": "Mordenkainen's Tome of Foes",
+      "category": "Supplements",
+      "date": "2018-05-28",
+      "provides": ["species"]
+    },
+    {
+      "id": "AI",
+      "name": "Acquisitions Incorporated",
+      "category": "Supplements",
+      "date": "2019-06-17",
+      "provides": ["classes", "backgrounds"]
+    },
+    {
+      "id": "TCE",
+      "name": "Tasha's Cauldron of Everything",
+      "category": "Supplements",
+      "date": "2020-11-16",
+      "provides": ["classes", "spells", "feats", "items"]
+    },
+    {
+      "id": "FTD",
+      "name": "Fizban's Treasury of Dragons",
+      "category": "Supplements",
+      "date": "2021-10-25",
+      "provides": ["classes", "spells", "feats", "items"]
+    },
+    {
+      "id": "MPMM",
+      "name": "Mordenkainen Presents: Monsters of the Multiverse",
+      "category": "Supplements",
+      "date": "2022-01-24",
+      "provides": ["species"]
+    },
+    {
+      "id": "BGG",
+      "name": "Bigby Presents: Glory of the Giants",
+      "category": "Supplements",
+      "date": "2023-08-14",
+      "provides": ["classes", "spells", "feats", "items"]
+    },
+    {
+      "id": "BOME",
+      "name": "The Book of Many Things",
+      "category": "Supplements",
+      "date": "2023-11-13",
+      "provides": ["classes", "feats", "backgrounds"]
+    },
+    {
+      "id": "DOMT",
+      "name": "The Deck of Many Things: Card Reference Guide",
+      "category": "Supplements",
+      "date": "2023-11-13",
+      "provides": []
+    },
+    {
+      "id": "SCAG",
+      "name": "Sword Coast Adventurer's Guide",
+      "category": "Settings",
+      "date": "2015-11-02",
+      "provides": ["classes", "spells", "backgrounds", "species"]
+    },
+    {
+      "id": "GGR",
+      "name": "Guildmasters' Guide to Ravnica",
+      "category": "Settings",
+      "date": "2018-11-19",
+      "provides": ["classes", "spells", "backgrounds", "species"]
+    },
+    {
+      "id": "ERLW",
+      "name": "Eberron: Rising from the Last War",
+      "category": "Settings",
+      "date": "2019-11-18",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats", "items"]
+    },
+    {
+      "id": "EGW",
+      "name": "Explorer's Guide to Wildemount",
+      "category": "Settings",
+      "date": "2020-03-16",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats"]
+    },
+    {
+      "id": "MOT",
+      "name": "Mythic Odysseys of Theros",
+      "category": "Settings",
+      "date": "2020-06-01",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats"]
+    },
+    {
+      "id": "VRGR",
+      "name": "Van Richten's Guide to Ravenloft",
+      "category": "Settings",
+      "date": "2021-05-17",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats"]
+    },
+    {
+      "id": "SCC",
+      "name": "Strixhaven: A Curriculum of Chaos",
+      "category": "Settings",
+      "date": "2021-12-06",
+      "provides": ["classes", "spells", "backgrounds", "feats"]
+    },
+    {
+      "id": "AAG",
+      "name": "Astral Adventurer's Guide",
+      "category": "Settings",
+      "date": "2022-08-15",
+      "provides": ["classes", "backgrounds", "species", "items"]
+    },
+    {
+      "id": "BAM",
+      "name": "Boo's Astral Menagerie",
+      "category": "Settings",
+      "date": "2022-08-15",
+      "provides": []
+    },
+    {
+      "id": "MPP",
+      "name": "Morte's Planar Parade",
+      "category": "Settings",
+      "date": "2023-10-06",
+      "provides": []
+    },
+    {
+      "id": "SAiS",
+      "name": "Sigil and the Outlands",
+      "category": "Settings",
+      "date": "2023-10-06",
+      "provides": ["backgrounds"]
+    },
+    {
+      "id": "FRAF",
+      "name": "Forgotten Realms: Adventures in Faerûn",
+      "category": "Settings",
+      "date": "2025-11-10",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats"]
+    },
+    {
+      "id": "FRHF",
+      "name": "Forgotten Realms: Heroes of Faerûn",
+      "category": "Settings",
+      "date": "2025-11-10",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats"]
+    },
+    {
+      "id": "EBFA",
+      "name": "Eberron: Forge of the Artificer",
+      "category": "Settings",
+      "date": "2025-12-08",
+      "provides": ["classes", "spells", "backgrounds", "species", "feats", "items"]
+    },
+    {
+      "id": "PSZ",
+      "name": "Plane Shift: Zendikar",
+      "category": "Additional Settings",
+      "date": "2016-04-26",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "PSI",
+      "name": "Plane Shift: Innistrad",
+      "category": "Additional Settings",
+      "date": "2016-07-11",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "PSK",
+      "name": "Plane Shift: Kaladesh",
+      "category": "Additional Settings",
+      "date": "2017-02-15",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "PSA",
+      "name": "Plane Shift: Amonkhet",
+      "category": "Additional Settings",
+      "date": "2017-07-05",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "PSX",
+      "name": "Plane Shift: Ixalan",
+      "category": "Additional Settings",
+      "date": "2018-01-08",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "PSD",
+      "name": "Plane Shift: Dominaria",
+      "category": "Additional Settings",
+      "date": "2018-07-30",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "NF",
+      "name": "Netheril's Fall",
+      "category": "Additional Settings",
+      "date": "2025-11-10",
+      "provides": ["species", "backgrounds", "spells"]
+    },
+    {
+      "id": "LFL",
+      "name": "Lorwyn: First Light",
+      "category": "Additional Settings",
+      "date": "2025-11-17",
+      "provides": ["species", "backgrounds", "spells"]
+    },
+    {
+      "id": "OGA",
+      "name": "One Grung Above",
+      "category": "Extras",
+      "date": "2017-10-10",
+      "provides": ["species"]
+    },
+    {
+      "id": "AWM",
+      "name": "Adventure with Muk",
+      "category": "Extras",
+      "date": "2019-11-11",
+      "provides": []
+    },
+    {
+      "id": "RMR",
+      "name": "Dungeons & Dragons vs. Rick and Morty: Basic Rules",
+      "category": "Extras",
+      "date": "2019-11-18",
+      "provides": []
+    },
+    {
+      "id": "MFFV1E",
+      "name": "Muk's Guide to Everything He Learned From Tasha",
+      "category": "Extras",
+      "date": "2020-11-30",
+      "provides": []
+    },
+    {
+      "id": "DoD",
+      "name": "Domains of Delight",
+      "category": "Extras",
+      "date": "2021-09-20",
+      "provides": ["backgrounds"]
+    },
+    {
+      "id": "MBOJV",
+      "name": "Minsc and Boo's Journal of Villainy",
+      "category": "Extras",
+      "date": "2021-10-04",
+      "provides": ["species", "backgrounds"]
+    },
+    {
+      "id": "TG",
+      "name": "Thieves' Gallery",
+      "category": "Extras",
+      "date": "2023-03-05",
+      "provides": ["backgrounds"]
+    },
+    {
+      "id": "MCV4EC",
+      "name": "Monstrous Compendium Volume 4: Eldraine Creatures",
+      "category": "Extras",
+      "date": "2023-09-20",
+      "provides": []
+    },
+    {
+      "id": "AATM",
+      "name": "Adventure Atlas: The Mortuary",
+      "category": "Extras",
+      "date": "2023-10-16",
+      "provides": []
+    },
+    {
+      "id": "ABH",
+      "name": "Astarion's Book of Hungers",
+      "category": "Extras",
+      "date": "2025-11-10",
+      "provides": ["backgrounds", "species"]
+    },
+    {
+      "id": "AL",
+      "name": "Adventurers League",
+      "category": "Organized Play",
+      "date": "2016-08-25",
+      "provides": []
+    }
+  ],
+
+  "characterCreatorSources": [
+    "PHB", "XPHB",
+    "XGE", "TCE",
+    "SCAG", "GGR", "ERLW", "EGW", "MOT", "VRGR", "SCC", "AAG", "FTD", "BGG", "BOME",
+    "FRAF", "FRHF", "EBFA",
+    "VGM", "MTF", "MPMM",
+    "AI", "SAiS",
+    "PSZ", "PSI", "PSK", "PSA", "PSX", "PSD",
+    "OGA", "DoD", "MBOJV", "TG", "ABH",
+    "NF", "LFL"
+  ]
+}
