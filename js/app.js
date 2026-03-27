@@ -17,7 +17,7 @@ if (page === 'home')             initHomePage();
 if (page === 'rooms')            initRoomsPage();
 if (page === 'player-tools')     initPlayerToolsPage();
 if (page === 'dm-tools')         initInnerPage();
-if (page === 'create-character') initInnerPage();
+if (page === 'create-character') initCreatorPage();
 if (page === 'character-sheet')  initCharacterSheetPage();
 if (page === 'room')             initRoomPage();
 
@@ -277,7 +277,20 @@ async function initCharacterSheetPage() {
 }
 
 /* ============================================================
-   INNER PAGES (dm-tools, create-character stubs)
+   CHARACTER CREATOR
+   ============================================================ */
+async function initCreatorPage() {
+  const user = await waitForAuth();
+  if (!user || user.isAnonymous) {
+    window.location.href = 'player-tools.html';
+    return;
+  }
+  const { initWizard } = await import('./creator/wizard.js');
+  initWizard();
+}
+
+/* ============================================================
+   INNER PAGES (dm-tools stubs)
    ============================================================ */
 function initInnerPage() {
   initTheme();

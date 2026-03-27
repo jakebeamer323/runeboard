@@ -7,33 +7,52 @@
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/creator.css" />
 </head>
 <body data-page="create-character">
 
-  <div class="inner-page">
+  <div class="creator-page" id="creator-page">
 
-    <nav class="inner-nav">
-      <a href="player-tools.html" class="logo" style="text-decoration:none;">Rune<span>board</span></a>
-      <div class="home-nav-actions">
-        <a href="player-tools.html" class="btn btn-ghost" style="font-size:12px;">← My Characters</a>
+    <!-- Top nav -->
+    <nav class="creator-nav">
+      <a href="player-tools.html" class="logo" style="text-decoration:none;flex-shrink:0;">Rune<span>board</span></a>
+      <span class="creator-nav-title" id="creator-nav-title">New Character</span>
+      <div class="creator-nav-actions">
+        <button id="save-draft-btn" class="btn btn-ghost" style="font-size:12px;">Save Draft</button>
         <button id="settings-btn" class="btn btn-ghost btn-icon" title="Settings">⚙</button>
       </div>
     </nav>
 
-    <div class="home-divider"></div>
+    <!-- Tab bar -->
+    <div class="creator-tab-bar" id="creator-tab-bar">
+      <!-- populated by wizard.js -->
+    </div>
 
-    <main class="inner-main">
-      <div class="inner-card glass-panel" style="text-align:center;">
-        <div style="font-size:48px; margin-bottom:var(--space-5);">⚒️</div>
-        <h2 class="glass-panel-title">Character Creator</h2>
-        <p class="glass-panel-sub" style="max-width:420px; margin:0 auto;">
-          The full character creation wizard is coming next. Check back soon.
-        </p>
+    <!-- Tab content -->
+    <div class="creator-content" id="creator-content">
+      <!-- populated by wizard.js -->
+    </div>
+
+    <!-- Footer nav -->
+    <footer class="creator-footer">
+      <div>
+        <button id="prev-btn" class="btn btn-ghost">← Back</button>
       </div>
-    </main>
+      <div class="creator-footer-center">
+        <span id="creator-step-label">Step 1 of 9</span>
+      </div>
+      <div class="creator-footer-right">
+        <button id="next-btn" class="btn btn-primary">Next →</button>
+        <button id="finish-btn" class="btn btn-primary" style="display:none;">Save Character</button>
+      </div>
+    </footer>
 
+  </div>
+
+  <!-- Source filter panel (slide-in from right) -->
+  <div id="source-filter-overlay" class="source-filter-overlay"></div>
+  <div id="source-filter-panel" class="source-filter-panel">
+    <!-- populated by source-filter.js -->
   </div>
 
   <!-- Settings panel -->
