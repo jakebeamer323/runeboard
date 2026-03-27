@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Runeboard</title>
+  <title>Runeboard — Virtual Tabletop for D&D 5e</title>
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -12,73 +12,159 @@
 </head>
 <body data-page="home">
 
-  <div class="landing">
+  <!-- Cycling background -->
+  <div class="bg-slideshow">
+    <div class="bg-slide" id="bg-a"></div>
+    <div class="bg-slide" id="bg-b"></div>
+  </div>
+  <div class="bg-overlay"></div>
 
-    <!-- Header -->
-    <header class="landing-header">
+  <!-- Page -->
+  <div class="home-page">
+
+    <!-- Navbar -->
+    <nav class="home-nav">
       <span class="logo">Rune<span>board</span></span>
-      <p class="landing-tagline">Virtual tabletop for D&amp;D 5e</p>
-    </header>
+      <div class="home-nav-actions">
+        <a href="rooms.html" class="btn btn-ghost">Rooms</a>
+        <button id="signin-btn" class="btn btn-primary">Sign In</button>
+        <button id="user-btn" class="btn btn-ghost" style="display:none;"></button>
+        <button id="settings-btn" class="btn btn-ghost btn-icon" title="Settings">⚙</button>
+      </div>
+    </nav>
 
-    <!-- Display name -->
-    <div class="landing-name">
-      <label class="form-label" for="display-name">Your Name</label>
-      <input
-        id="display-name"
-        type="text"
-        placeholder="How shall you be known?"
-        maxlength="32"
-        autocomplete="off"
-      />
+    <div class="home-divider"></div>
+
+    <!-- Main grid -->
+    <main class="home-main">
+
+      <!-- Left: Features -->
+      <section class="home-features glass-panel">
+        <h2 class="glass-panel-title">What is Runeboard?</h2>
+        <p class="glass-panel-sub">A virtual tabletop built for D&amp;D 5e — no downloads, no setup. Share a code and play.</p>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <span class="feature-icon">🎲</span>
+            <div class="feature-text">
+              <strong>Dice Roller</strong>
+              <span>Roll any dice combination with advantage, disadvantage, and modifiers. Results broadcast live to the whole party.</span>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">⚔️</span>
+            <div class="feature-text">
+              <strong>Initiative Tracker</strong>
+              <span>DMs manage turn order in real time. Add combatants, track HP, and advance turns — all players see it instantly.</span>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">💬</span>
+            <div class="feature-text">
+              <strong>Live Party Chat</strong>
+              <span>In-room messaging with automatic dice integration. Roll results post directly to the party feed.</span>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">🗺️</span>
+            <div class="feature-text">
+              <strong>Battle Maps</strong>
+              <span>DMs upload maps and campaign art for the whole table to explore. <em>Coming in Phase 2.</em></span>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">📜</span>
+            <div class="feature-text">
+              <strong>Character Sheets &amp; Spells</strong>
+              <span>Build characters and manage spell cards tied to your account. <em>Coming in Phase 2.</em></span>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">📋</span>
+            <div class="feature-text">
+              <strong>Session Planner</strong>
+              <span>DMs plan encounters, write notes, and organize campaigns before the session starts. <em>Coming in Phase 2.</em></span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Center gap (background shows through) -->
+      <div class="home-gap"></div>
+
+      <!-- Right: Tool cards -->
+      <div class="home-tools">
+        <a href="player-tools.html" class="tool-card glass-panel">
+          <div class="tool-card-icon">🧙</div>
+          <div class="tool-card-body">
+            <h3 class="tool-card-title">Player Tools</h3>
+            <p class="tool-card-desc">Build and manage your characters. Organize spell cards, track stats, and bring your hero to any table.</p>
+            <span class="tool-card-cta">Open Player Tools →</span>
+          </div>
+        </a>
+        <a href="dm-tools.html" class="tool-card glass-panel">
+          <div class="tool-card-icon">👁️</div>
+          <div class="tool-card-body">
+            <h3 class="tool-card-title">DM Tools</h3>
+            <p class="tool-card-desc">Upload battle maps, plan your sessions, and run your campaign from one place. Built for the person behind the screen.</p>
+            <span class="tool-card-cta">Open DM Tools →</span>
+          </div>
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Settings panel -->
+  <aside id="settings-panel" class="settings-panel">
+    <div class="settings-header">
+      <span class="settings-title">Settings</span>
+      <button id="settings-close" class="modal-close">×</button>
     </div>
-
-    <!-- Cards -->
-    <div class="landing-cards">
-
-      <!-- Create room -->
-      <div class="card">
-        <h2 style="font-size:14px; margin-bottom:16px;">Create a Room</h2>
-        <label class="form-label" for="room-name-input">Room Name</label>
-        <input
-          id="room-name-input"
-          type="text"
-          placeholder="e.g. The Sunken Keep"
-          maxlength="48"
-          autocomplete="off"
-          style="margin-bottom:12px;"
-        />
-        <p id="create-error" class="error-msg" style="display:none; color:var(--danger); font-size:12px; margin-bottom:8px;"></p>
-        <button id="create-room-btn" class="btn btn-primary btn-full">Create Room</button>
-        <p style="font-size:11px; color:var(--text-muted); margin-top:10px; text-align:center;">
-          You'll be the Dungeon Master
-        </p>
+    <div class="settings-body">
+      <div class="settings-group">
+        <span class="settings-label">Appearance</span>
+        <div class="settings-row">
+          <span>Theme</span>
+          <button id="theme-toggle" class="btn btn-ghost theme-toggle-btn">
+            <span id="theme-toggle-icon">☀️</span>
+            <span id="theme-toggle-label">Light Mode</span>
+          </button>
+        </div>
       </div>
-
-      <!-- Join room -->
-      <div class="card">
-        <h2 style="font-size:14px; margin-bottom:16px;">Join a Room</h2>
-        <label class="form-label" for="join-code-input">Room Code</label>
-        <input
-          id="join-code-input"
-          type="text"
-          placeholder="e.g. X4R9KM"
-          maxlength="6"
-          autocomplete="off"
-          style="text-transform:uppercase; letter-spacing:0.15em; margin-bottom:12px;"
-        />
-        <p id="join-error" class="error-msg" style="display:none; color:var(--danger); font-size:12px; margin-bottom:8px;"></p>
-        <button id="join-room-btn" class="btn btn-ghost btn-full">Join Room</button>
-        <p style="font-size:11px; color:var(--text-muted); margin-top:10px; text-align:center;">
-          Ask your DM for the code
-        </p>
+      <div class="settings-group">
+        <span class="settings-label">Account</span>
+        <div class="settings-row settings-row-col">
+          <label class="form-label" style="margin-bottom:var(--space-2);" for="settings-name">Display Name</label>
+          <div class="input-group">
+            <input id="settings-name" type="text" placeholder="Your name" maxlength="32" autocomplete="off" />
+            <button id="settings-save-name" class="btn btn-primary" style="flex-shrink:0;">Save</button>
+          </div>
+        </div>
+        <div id="settings-auth-row" class="settings-row"></div>
       </div>
+    </div>
+  </aside>
 
+  <!-- Sign-in modal -->
+  <div id="signin-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <button class="modal-close" id="signin-close">×</button>
+      <h2 class="modal-title">Sign in to Runeboard</h2>
+      <p style="color:var(--text-muted); font-size:13px; margin-bottom:var(--space-6);">Save your characters, access DM Tools, and keep your history across sessions.</p>
+      <button id="google-signin-btn" class="btn btn-google btn-full">
+        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+          <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+      <p id="signin-error" style="display:none; color:var(--danger); font-size:12px; margin-top:var(--space-3);"></p>
     </div>
   </div>
 
-  <!-- Toast container -->
   <div id="toast-container"></div>
-
   <script type="module" src="js/app.js"></script>
 </body>
 </html>

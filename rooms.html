@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooms — Runeboard</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-page="rooms">
+
+  <div class="inner-page">
+
+    <!-- Navbar -->
+    <nav class="inner-nav">
+      <a href="index.html" class="logo" style="text-decoration:none;">Rune<span>board</span></a>
+      <div class="home-nav-actions">
+        <button id="signin-btn" class="btn btn-primary">Sign In</button>
+        <button id="user-btn" class="btn btn-ghost" style="display:none;"></button>
+        <button id="settings-btn" class="btn btn-ghost btn-icon" title="Settings">⚙</button>
+      </div>
+    </nav>
+
+    <div class="home-divider"></div>
+
+    <!-- Content -->
+    <main class="inner-main">
+      <div class="inner-card glass-panel">
+
+        <h2 class="glass-panel-title" style="margin-bottom:var(--space-6);">Rooms</h2>
+
+        <div class="landing-cards">
+
+          <!-- Create a Room -->
+          <div>
+            <h3 class="rooms-card-heading">Create a Room</h3>
+            <label class="form-label" for="room-name-input">Room Name</label>
+            <input id="room-name-input" type="text" placeholder="e.g. The Sunken Keep" maxlength="48" autocomplete="off" style="margin-bottom:12px;" />
+            <p id="create-error" style="display:none; color:var(--danger); font-size:12px; margin-bottom:8px;"></p>
+            <button id="create-room-btn" class="btn btn-primary btn-full">Create Room</button>
+            <p style="font-size:11px; color:var(--text-muted); margin-top:10px; text-align:center;">You'll be the Dungeon Master</p>
+          </div>
+
+          <!-- Join a Room -->
+          <div>
+            <h3 class="rooms-card-heading">Join a Room</h3>
+            <label class="form-label" for="join-code-input">Room Code</label>
+            <input id="join-code-input" type="text" placeholder="e.g. X4R9KM" maxlength="6" autocomplete="off" style="text-transform:uppercase; letter-spacing:0.15em; margin-bottom:12px;" />
+            <p id="join-error" style="display:none; color:var(--danger); font-size:12px; margin-bottom:8px;"></p>
+            <button id="join-room-btn" class="btn btn-ghost btn-full">Join Room</button>
+            <p style="font-size:11px; color:var(--text-muted); margin-top:10px; text-align:center;">Ask your DM for the code</p>
+          </div>
+
+        </div>
+
+        <!-- Sign-in prompt (shown when not authenticated) -->
+        <div id="auth-prompt" style="display:none; text-align:center; margin-top:var(--space-6); padding-top:var(--space-6); border-top:1px solid var(--border);">
+          <p style="color:var(--text-muted); font-size:13px; margin-bottom:var(--space-3);">Sign in to create or join rooms.</p>
+          <button id="extra-signin-btn" class="btn btn-primary">Sign in with Google</button>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Settings panel -->
+  <aside id="settings-panel" class="settings-panel">
+    <div class="settings-header">
+      <span class="settings-title">Settings</span>
+      <button id="settings-close" class="modal-close">×</button>
+    </div>
+    <div class="settings-body">
+      <div class="settings-group">
+        <span class="settings-label">Appearance</span>
+        <div class="settings-row">
+          <span>Theme</span>
+          <button id="theme-toggle" class="btn btn-ghost theme-toggle-btn">
+            <span id="theme-toggle-icon">☀️</span>
+            <span id="theme-toggle-label">Light Mode</span>
+          </button>
+        </div>
+      </div>
+      <div class="settings-group">
+        <span class="settings-label">Account</span>
+        <div class="settings-row settings-row-col">
+          <label class="form-label" style="margin-bottom:var(--space-2);" for="settings-name">Display Name</label>
+          <div class="input-group">
+            <input id="settings-name" type="text" placeholder="Your name" maxlength="32" autocomplete="off" />
+            <button id="settings-save-name" class="btn btn-primary" style="flex-shrink:0;">Save</button>
+          </div>
+        </div>
+        <div id="settings-auth-row" class="settings-row"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sign-in modal -->
+  <div id="signin-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <button class="modal-close" id="signin-close">×</button>
+      <h2 class="modal-title">Sign in to Runeboard</h2>
+      <p style="color:var(--text-muted); font-size:13px; margin-bottom:var(--space-6);">Sign in to create or join rooms.</p>
+      <button id="google-signin-btn" class="btn btn-google btn-full">
+        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+          <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+      <p id="signin-error" style="display:none; color:var(--danger); font-size:12px; margin-top:var(--space-3);"></p>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

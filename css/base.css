@@ -54,6 +54,37 @@
   --transition: 150ms ease;
 }
 
+/* ── Light mode overrides ───────────────────────────────────── */
+[data-theme="light"] {
+  --bg:             #f0ebe0;
+  --surface:        #faf7f2;
+  --surface-raised: #ffffff;
+  --surface-hover:  #ede8dd;
+  --border:         #d4cdc0;
+  --border-strong:  #b8b2a8;
+
+  --text:           #1c1a16;
+  --text-muted:     #6b6358;
+  --text-dim:       #8a8278;
+
+  --accent-glow:    rgba(201, 168, 76, 0.18);
+
+  --dice-bg:        #ede8dd;
+
+  --nav-glass-bg:   rgba(240, 235, 224, 0.88);
+  --glass-bg:       rgba(255, 255, 255, 0.84);
+  --glass-border:   rgba(0, 0, 0, 0.07);
+  --bg-overlay:     rgba(240, 235, 224, 0.25);
+}
+
+/* ── Dark mode glass vars (also set in :root) ──────────────── */
+:root {
+  --nav-glass-bg:  rgba(13, 14, 18, 0.72);
+  --glass-bg:      rgba(13, 14, 18, 0.80);
+  --glass-border:  rgba(255, 255, 255, 0.05);
+  --bg-overlay:    rgba(0, 0, 0, 0.58);
+}
+
 html, body {
   height: 100%;
   background: var(--bg);

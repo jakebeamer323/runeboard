@@ -3,6 +3,27 @@
    ============================================================ */
 
 @media (max-width: 900px) {
+  /* Landing page */
+  .home-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .home-gap {
+    display: none;
+  }
+
+  .home-tools {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tool-card {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  /* Room page */
   .landing-cards {
     grid-template-columns: 1fr;
   }
@@ -19,5 +40,10 @@
 
   .center-stage {
     min-height: 300px;
+  }
+
+  /* Settings panel */
+  .settings-panel {
+    width: 100%;
   }
 }

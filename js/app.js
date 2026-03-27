@@ -1,112 +1,118 @@
-import { ensureSignedIn, onAuthReady, setDisplayName, getCurrentUser } from './firebase/auth.js';
+import { ensureSignedIn, onAuthReady, setDisplayName, getCurrentUser, isGoogleUser, signInWithGoogle } from './firebase/auth.js';
 import { createRoom, joinRoom, isDM } from './firebase/rooms.js';
 import { initChat } from './modules/chat.js';
 import { initDicePanel } from './modules/dice.js';
 import { initInitiative } from './modules/initiative.js';
 import { showToast } from './ui/notifications.js';
 import { getRoomIdFromURL } from './utils/helpers.js';
+import { initTheme, initSlideshow, initSettings, initSignInModal, initAuthStateUI, openSignInModal } from './ui/shared-ui.js';
 
 const page = document.body.dataset.page;
 
-if (page === 'home')  initHome();
-if (page === 'room')  initRoomPage();
+if (page === 'home')         initHomePage();
+if (page === 'rooms')        initRoomsPage();
+if (page === 'player-tools') initInnerPage();
+if (page === 'dm-tools')     initInnerPage();
+if (page === 'room')         initRoomPage();
 
 /* ============================================================
-   HOME PAGE
+   HOME (landing page)
    ============================================================ */
-function initHome() {
-  const nameInput    = document.getElementById('display-name');
-  const createBtn    = document.getElementById('create-room-btn');
-  const createName   = document.getElementById('room-name-input');
-  const joinBtn      = document.getElementById('join-room-btn');
-  const joinCode     = document.getElementById('join-code-input');
-  const createErr    = document.getElementById('create-error');
-  const joinErr      = document.getElementById('join-error');
+function initHomePage() {
+  initTheme();
+  initSlideshow();
+  initSettings();
+  initSignInModal();
+  initAuthStateUI();
+}
 
-  // Pre-fill name from localStorage
-  const savedName = localStorage.getItem('rb_display_name');
-  if (savedName && nameInput) nameInput.value = savedName;
+/* ============================================================
+   ROOMS PAGE
+   ============================================================ */
+function initRoomsPage() {
+  initTheme();
+  initSettings();
+  initSignInModal();
+  initAuthStateUI();
+
+  const createBtn  = document.getElementById('create-room-btn');
+  const createName = document.getElementById('room-name-input');
+  const joinBtn    = document.getElementById('join-room-btn');
+  const joinCode   = document.getElementById('join-code-input');
+  const createErr  = document.getElementById('create-error');
+  const joinErr    = document.getElementById('join-error');
+  const authPrompt = document.getElementById('auth-prompt');
+
+  // Show/hide auth prompt based on sign-in state
+  onAuthReady(user => {
+    if (authPrompt) {
+      authPrompt.style.display = (user && !user.isAnonymous) ? 'none' : 'block';
+    }
+  });
 
   createBtn?.addEventListener('click', async () => {
-    const name     = nameInput?.value.trim();
-    const roomName = createName?.value.trim();
+    if (!isGoogleUser()) { openSignInModal(); return; }
 
-    if (!name) { showError(createErr, 'Enter your name first.'); return; }
-    if (!roomName) { showError(createErr, 'Enter a room name.'); return; }
+    const roomName = createName?.value.trim();
+    if (!roomName) { showFieldError(createErr, 'Enter a room name.'); return; }
 
     createBtn.disabled = true;
     createBtn.textContent = 'Creating…';
-
     try {
-      await ensureSignedIn();
-      await setDisplayName(name);
-      localStorage.setItem('rb_display_name', name);
-
       const code = await createRoom(roomName);
       window.location.href = `room.html?id=${code}`;
     } catch (err) {
-      showError(createErr, err.message);
+      showFieldError(createErr, err.message);
       createBtn.disabled = false;
       createBtn.textContent = 'Create Room';
     }
   });
 
   joinBtn?.addEventListener('click', async () => {
-    const name = nameInput?.value.trim();
-    const code = joinCode?.value.trim().toUpperCase();
+    if (!isGoogleUser()) { openSignInModal(); return; }
 
-    if (!name) { showError(joinErr, 'Enter your name first.'); return; }
-    if (!code) { showError(joinErr, 'Enter a room code.'); return; }
+    const code = joinCode?.value.trim().toUpperCase();
+    if (!code) { showFieldError(joinErr, 'Enter a room code.'); return; }
 
     joinBtn.disabled = true;
     joinBtn.textContent = 'Joining…';
-
     try {
       await ensureSignedIn();
-      await setDisplayName(name);
-      localStorage.setItem('rb_display_name', name);
-
       await joinRoom(code);
       window.location.href = `room.html?id=${code}`;
     } catch (err) {
-      showError(joinErr, err.message);
+      showFieldError(joinErr, err.message);
       joinBtn.disabled = false;
       joinBtn.textContent = 'Join Room';
     }
   });
 
-  // Allow Enter on inputs
-  joinCode?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') joinBtn?.click();
-  });
-  createName?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') createBtn?.click();
-  });
+  joinCode?.addEventListener('keydown', e => { if (e.key === 'Enter') joinBtn?.click(); });
+  createName?.addEventListener('keydown', e => { if (e.key === 'Enter') createBtn?.click(); });
 }
 
 /* ============================================================
-   ROOM PAGE
+   INNER PAGES (player-tools, dm-tools) — shared stub init
+   ============================================================ */
+function initInnerPage() {
+  initTheme();
+  initSettings();
+  initSignInModal();
+  initAuthStateUI();
+}
+
+/* ============================================================
+   ROOM PAGE (game room)
    ============================================================ */
 async function initRoomPage() {
   const roomId = getRoomIdFromURL();
-  if (!roomId) {
-    window.location.href = 'index.html';
-    return;
-  }
+  if (!roomId) { window.location.href = 'index.html'; return; }
 
-  // Wait for auth
   await new Promise(resolve => {
-    const unsub = onAuthReady(user => {
-      unsub();
-      resolve(user);
-    });
+    const unsub = onAuthReady(user => { unsub(); resolve(user); });
   });
 
-  // If not signed in, redirect home
-  if (!getCurrentUser()) {
-    window.location.href = 'index.html';
-    return;
-  }
+  if (!getCurrentUser()) { window.location.href = 'index.html'; return; }
 
   let room;
   try {
@@ -119,7 +125,6 @@ async function initRoomPage() {
 
   const dm = isDM(room);
 
-  // Update navbar
   const roomNameEl = document.getElementById('navbar-room-name');
   const roomCodeEl = document.getElementById('navbar-room-code');
   const dmBadge    = document.getElementById('dm-badge');
@@ -134,12 +139,10 @@ async function initRoomPage() {
   }
   if (dmBadge) dmBadge.style.display = dm ? 'inline-flex' : 'none';
 
-  // Leave room button
   document.getElementById('leave-btn')?.addEventListener('click', () => {
     window.location.href = 'index.html';
   });
 
-  // Init modules
   const { sendRollToChat } = initChat(roomId);
   initDicePanel(roomId, sendRollToChat);
   initInitiative(roomId, dm);
@@ -148,7 +151,7 @@ async function initRoomPage() {
 /* ============================================================
    Helpers
    ============================================================ */
-function showError(el, msg) {
+function showFieldError(el, msg) {
   if (!el) return;
   el.textContent = msg;
   el.style.display = 'block';

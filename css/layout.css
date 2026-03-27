@@ -2,7 +2,137 @@
    LAYOUT — Page structure for room.html and index.html
    ============================================================ */
 
-/* ---- Landing page ---------------------------------------- */
+/* ============================================================
+   NEW LANDING PAGE (index.html)
+   ============================================================ */
+
+/* ---- Background slideshow -------------------------------- */
+.bg-slideshow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.bg-slide.active {
+  opacity: 1;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: var(--bg-overlay);
+  pointer-events: none;
+}
+
+/* ---- Home page shell ------------------------------------- */
+.home-page {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Home navbar ----------------------------------------- */
+.home-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  height: 58px;
+  background: var(--nav-glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+
+.home-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.home-divider {
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- Home main grid -------------------------------------- */
+.home-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 36% 1fr 34%;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  min-height: 0;
+  align-items: stretch;
+}
+
+.home-features {
+  padding: var(--space-6);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.home-gap {
+  /* intentionally empty — background shows through */
+}
+
+.home-tools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ---- Inner pages (rooms, player-tools, dm-tools) --------- */
+.inner-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.inner-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  height: 58px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.inner-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-5);
+}
+
+.inner-card {
+  width: 100%;
+  max-width: 680px;
+  padding: var(--space-8);
+}
+
+/* ---- Old landing page (kept for reference) --------------- */
 .landing {
   min-height: 100vh;
   display: flex;

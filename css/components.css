@@ -2,6 +2,253 @@
    COMPONENTS — Reusable UI elements
    ============================================================ */
 
+/* ============================================================
+   LANDING PAGE COMPONENTS
+   ============================================================ */
+
+/* ---- Glass panel ----------------------------------------- */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.glass-panel-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.glass-panel-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ---- Feature list ---------------------------------------- */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.feature-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.feature-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.feature-text strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.feature-text span {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ---- Tool cards ------------------------------------------ */
+.tool-card {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  text-decoration: none;
+  color: var(--text);
+  flex: 1;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-dim);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: var(--text);
+}
+
+.tool-card-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.tool-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tool-card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.tool-card-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.tool-card-cta {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: auto;
+}
+
+/* ---- Settings panel -------------------------------------- */
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 250ms ease;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+}
+
+.settings-panel.open {
+  transform: translateX(0);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-5);
+  height: 52px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.settings-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.settings-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.settings-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 13px;
+  color: var(--text);
+}
+
+.settings-row-col {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+}
+
+/* ---- Google sign-in button ------------------------------- */
+.btn-google {
+  background: var(--surface-raised);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--space-3) var(--space-4);
+}
+
+.btn-google:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-dim);
+}
+
+/* ---- Rooms page ------------------------------------------ */
+.rooms-card-heading {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* ---- Coming soon pills ----------------------------------- */
+.coming-soon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   ORIGINAL COMPONENTS
+   ============================================================ */
+
 /* ---- Buttons --------------------------------------------- */
 .btn {
   display: inline-flex;
