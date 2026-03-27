@@ -11,7 +11,7 @@ const PHB_BACKGROUNDS = [
   { id: 'criminal',      name: 'Criminal',        skillProfs: 'Deception, Stealth',      desc: 'You are an experienced criminal with a history of breaking the law.' },
   { id: 'entertainer',   name: 'Entertainer',     skillProfs: 'Acrobatics, Performance', desc: 'You thrive in front of an audience. You know how to entrance them, entertain them, and inspire them.' },
   { id: 'folk-hero',     name: 'Folk Hero',       skillProfs: 'Animal Handling, Survival', desc: 'You come from a humble social rank, but you are destined for so much more.' },
-  { id: 'guild-artisan', name: 'Guild Artisan',   skillProfs: 'Insight, Persuasion',     desc: 'You are a member of an artisan's guild, skilled in a particular field and closely associated with other artisans.' },
+  { id: 'guild-artisan', name: 'Guild Artisan',   skillProfs: 'Insight, Persuasion',     desc: "You are a member of an artisan's guild, skilled in a particular field and closely associated with other artisans." },
   { id: 'hermit',        name: 'Hermit',          skillProfs: 'Medicine, Religion',      desc: 'You lived in seclusion — either in a sheltered community or entirely alone.' },
   { id: 'noble',         name: 'Noble',           skillProfs: 'History, Persuasion',     desc: 'You understand wealth, power, and privilege. You carry a noble title and your family owns land.' },
   { id: 'outlander',     name: 'Outlander',       skillProfs: 'Athletics, Survival',     desc: 'You grew up in the wilds, far from civilization and the comforts of town and technology.' },
