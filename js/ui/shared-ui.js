@@ -35,7 +35,7 @@ export function initSlideshow() {
   if (!bgA || !bgB) return;
 
   const images = Array.from({ length: BG_COUNT }, (_, i) =>
-    `assets/images/Background (${i + 1}).${BG_EXT}`
+    `assets/images/background (${i + 1}).${BG_EXT}`
   ).sort(() => Math.random() - 0.5);
 
   let idx  = 0;
